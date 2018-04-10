@@ -29,6 +29,10 @@ namespace GCCommerce
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddDbContext<GCCommerceContext>(options =>
+                           options.UseSqlServer(Configuration.GetConnectionString("Ourdb")));
+
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
